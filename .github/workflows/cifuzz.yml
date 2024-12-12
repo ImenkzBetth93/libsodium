@@ -22,11 +22,11 @@ jobs:
         with:
           oss-fuzz-project-name: "libsodium"
           fuzz-seconds: 300
-          dry-run: false
-          language: c++
+          dry-run: true
+          language: c++01
       - name: Upload Crash
         uses: actions/upload-artifact@v4
         if: failure() && steps.build.outcome == 'success'
         with:
           name: artifacts
-          path: ./out/artifacts
+          path: ./out/artifacts/longstranger
